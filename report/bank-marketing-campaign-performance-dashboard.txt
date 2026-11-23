@@ -1,0 +1,56 @@
+================================================================================
+BANK MARKETING CAMPAIGN PERFORMANCE ANALYSIS REPORT
+Dataset: Bank Marketing Dataset (Moro, Rita, & Cortez, 2014 — May 2008 to November 2010)
+Source Reference: Power BI Report (bank-marketing-campaign-performance-dashboard.pbix)
+================================================================================
+
+1. EXECUTIVE SUMMARY & DASHBOARD OVERVIEW
+--------------------------------------------------------------------------------
+This report evaluates term-deposit subscription performance across the Bank Marketing campaign dataset (45K total campaign records, 5K successful subscriptions, and an Overall Subscription Rate of 11.70%). The dashboard breaks down subscription rates across customer occupation (`job`), communication channel (`contact`), calendar month (`Month Number` and `month`), and previous campaign outcome (`poutcome`), benchmarked against the 11.70% overall conversion baseline.
+
+
+2. ANSWERS TO KEY ANALYTICAL QUESTIONS
+--------------------------------------------------------------------------------
+
+Q1: Which job segments show relatively high or low conversion (subscription) rates?
+Answer:
+Based on "Subscription Rate by job" and "Subscription Rate and Overall Subscription Rate by job" (benchmarked against the 11.70% overall rate):
+- Highest Conversion Segments: `student` leads decisively at 28.68%, followed by `retired` at 22.79%, `unemployed` at 15.50%, and `management` at 13.76%—all performing above the 11.70% overall subscription rate.
+- Near-Baseline Segments: `admin.` (12.20%), `self-employed` (11.84%), and `unknown` (11.81%) sit just around/slightly above the 11.70% average, while `technician` (11.06%) is slightly below average.
+- Lowest Conversion Segments: `services` (8.88%), `housemaid` (8.79%), `entrepreneur` (8.27%), and `blue-collar` (7.27%) record the lowest subscription rates, trailing the 11.70% overall benchmark.
+
+Q2: Do outcomes based on communication methods show differences?
+Answer:
+Yes. In "Subscription Rate by contact":
+- `cellular` achieves the highest subscription rate at just under 15% (~14.9% visually).
+- `telephone` follows slightly lower at roughly 13% (~13.4% visually).
+- `unknown` drops sharply to around 4% (~4.1% visually), showing a marked gap compared to known cellular and telephone contact channels.
+
+Q3: Do specific campaign months show different patterns?
+Answer:
+Yes. In "Subscription Rate by Month Number and month", monthly subscription rates vary substantially across the calendar year rather than staying flat:
+- High-Conversion Months: `mar` (Month 3) stands out with the highest conversion rate above 50% (~52% visually), followed by strong spikes in `sep` (Month 9, ~46%), `dec` (Month 12, ~47%), and `oct` (Month 10, ~44%).
+- Moderate / Lower-Conversion Months: `apr` (Month 4, ~20%) and `feb` (Month 2, ~17%) sit above the overall average, whereas `may` (Month 5, ~7%), `jul` (Month 7, ~9.5%), `jan` (Month 1, ~10%), `jun` (Month 6, ~10%), `nov` (Month 11, ~10%), and `aug` (Month 8, ~11%) show lower subscription rates.
+
+Q4: Do customers who responded to a previous campaign show different conversion rates?
+Answer:
+Yes. In "Subscription Rate by poutcome":
+- `success` (previous campaign outcome succeeded) shows by far the highest subscription rate at roughly 65% visually.
+- `other` (~16% visually) and `failure` (~12% visually) convert at substantially lower rates than `success`, though still around or above the 11.70% overall baseline.
+- `unknown` (no prior outcome recorded) shows the lowest conversion rate at roughly 9% visually.
+
+Q5: Is the number of contact attempts related to campaign outcomes?
+Answer:
+Evidence on the relationship between the number of contact attempts (`campaign`) and subscription outcomes is not directly displayed in the current dashboard visuals (`BankMarketing` page currently renders KPI cards for records/subscriptions/overall rate, charts by `job`, `contact`, `Month Number` & `month`, `poutcome`, and a slicer for `job`, `contact`, `month`, and `Previous Contact Status`). Therefore, no empirical conclusion on contact-attempt volume vs. subscription outcome can be drawn from the visible charts without adding `campaign` (number of contacts performed during the campaign for a record) to the report visuals and analyzing it carefully.
+
+
+3. DATA LIMITATIONS & ANALYTICAL GUARDRAILS
+--------------------------------------------------------------------------------
+When interpreting these results and planning campaign actions, the following limitations must be observed:
+- Geographic Context: The dataset comes from a bank in Portugal and does not represent the Indonesian banking market or local customer behavior.
+- Historical Period: The dataset reflects historical campaign records from May 2008 to November 2010 and may not represent current consumer behavior.
+- No Unique Customer ID: No `customer ID` is available to verify the exact number of unique customers across records.
+- Definition of `campaign`: The `campaign` field represents the number of contacts performed during the campaign for a given record, not the count of unique campaigns.
+- No Causal Proof: Differences in subscription rates across segments (`job`, `contact`, `month`, `poutcome`) indicate association/patterns in the historical records and do not prove a causal relationship.
+- Missing Campaign Cost / ROI: Complete campaign cost information is not available, so Return on Investment (ROI) cannot be calculated from this dataset.
+================================================================================
